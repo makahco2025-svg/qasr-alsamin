@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://www2.0zz0.com/2025/10/23/00/501267947.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قصر السمين - أكلة بلدى ... لأهل بلدى</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        /* Simple scrollbar styling for webkit browsers */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        /* Animation for modal */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .animate-slideIn {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        .text-shadow-lg {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Loading screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff5f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            flex-direction: column;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #d97634;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error-message {
+            color: #e53e3e;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
+            background-color: #fff5f5;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .category-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+            .product-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .modal-content {
+                max-height: 90vh;
+            }
+        }
+        /* Address link styling */
+        .address-link {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .address-link:hover {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body class="bg-[#fff5f0]">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p class="text-xl text-[#3e2723]">جاري تحميل قصر السمين...</p>
+    </div>
+
+    <!-- Error Message (initially hidden) -->
+    <div id="error-message" class="error-message" style="display: none;">
+        <h2 class="text-2xl font-bold mb-2">حدث خطأ في تحميل الموقع</h2>
+        <p>يرجى التحقق من اتصالك بالإنترنت أو المحاولة مرة أخرى لاحقًا.</p>
+        <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-[#d97634] text-white rounded hover:bg-[#8b4513]">
+            إعادة تحميل الصفحة
+        </button>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="root" style="display: none;">
+        <!-- Header -->
+        <header class="bg-white shadow-md sticky top-0 z-40">
+            <div class="bg-[#3e2723] text-white py-2 text-sm">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
+                    <div class="flex gap-4">
+                        <a href="tel:01118091200" class="hover:text-[#ffcc00] transition-colors"><i class="fas fa-phone ml-1"></i> 011180912××</a>
+                        <a href="mailto:fajr.adv.2013@gmail.com" class="hover:text-[#ffcc00] transition-colors"><i class="fas fa-envelope ml-1"></i> fajr.adv.2013@gmail.com</a>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-[#ffcc00] transition-colors"><i class="fas fa-clock ml-1"></i> 10:00 ص - 01:00 ص</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="https://www2.0zz0.com/2025/10/23/00/501267947.png" alt="شعار قصر السمين" class="h-16 transition-transform hover:scale-105" />
+                    <div>
+                        <h1 class="text-3xl font-bold text-[#3e2723]">قصر السمين</h1>
+                        <p class="text-sm text-[#d97634]">أكلة بلدى ... لأهل بلدى</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/201030566078" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#d97634] text-white flex items-center justify-center text-xl transition-all hover:bg-[#8b4513] hover:-translate-y-1">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1BpyFS6dCq/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full bg-[#d97634] text-white flex items-center justify-center text-xl transition-all hover:bg-[#8b4513] hover:-translate-y-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <button onclick="toggleCartModal()" class="relative w-11 h-11 rounded-full bg-[#d97634] text-white flex items-center justify-center text-xl transition-all hover:bg-[#8b4513] hover:-translate-y-1" aria-label="Open delivery cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-[#ffcc00] text-[#3e2723] rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold" style="display: none;">0</span>
+                    </button>
+                    <button onclick="toggleDineInModal()" class="relative w-11 h-11 rounded-full bg-[#d97634] text-white flex items-center justify-center text-xl transition-all hover:bg-[#8b4513] hover:-translate-y-1" aria-label="Open dine-in order">
+                        <i class="fas fa-utensils"></i>
+                        <span id="dinein-count" class="absolute -top-1 -right-1 bg-[#ffcc00] text-[#3e2723] rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold" style="display: none;">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative h-96">
+            <img src="https://www2.0zz0.com/2025/10/22/23/773808599.jpg" alt="قصر السمين" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-center">
+                <div class="max-w-3xl px-4">
+                    <h1 class="hero-title text-4xl md:text-5xl font-extrabold mb-4 text-shadow-lg">قصر السمين</h1>
+                    <p class="hero-subtitle text-lg md:text-xl mb-6">أكلة بلدى ... لأهل بلدى</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="scrollToMenu()" class="py-3 px-6 rounded-full font-semibold bg-[#d97634] text-white transition-all hover:bg-[#8b4513] hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i class="fas fa-utensils"></i> استعرض القائمة
+                        </button>
+                        <a href="tel:01030566078" class="py-3 px-6 rounded-full font-semibold bg-transparent border-2 border-white text-white transition-colors hover:bg-white hover:text-[#3e2723] flex items-center justify-center gap-2">
+                            <i class="fas fa-phone"></i> اطلب الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="bg-white shadow-sm py-8 relative -mt-12 z-30 mx-4 rounded-lg md:mx-auto">
+            <div class="container mx-auto px-4">
+                <div class="relative max-w-2xl mx-auto">
+                    <input
+                        type="text"
+                        id="search-input"
+                        onkeyup="handleSearch(event)"
+                        class="w-full py-4 pr-12 pl-8 border-2 border-gray-200 rounded-full text-base transition-all shadow-inner focus:outline-none focus:border-[#d97634] focus:ring-2 focus:ring-[#d97634]/30"
+                        placeholder="ابحث عن وجبتك المفضلة..."
+                    />
+                    <button onclick="performSearch()" class="absolute top-1/2 -translate-y-1/2 right-3 bg-[#d97634] text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[#8b4513]" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Navigation -->
+        <nav class="bg-[#3e2723] sticky top-[220px] md:top-[132px] z-20 shadow-lg">
+            <div class="container mx-auto px-4">
+                <ul class="flex items-center justify-center overflow-x-auto scrollbar-hide whitespace-nowrap">
+                    <li>
+                        <button onclick="filterByCategory('all')" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10 text-[#ffcc00]" data-category="all">
+                            الكل
+                            <span class="absolute bottom-0 left-0 w-full h-1 bg-[#ffcc00]"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="filterByCategory(1)" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10" data-category="1">
+                            <i class="fas fa-fire ml-2"></i>مشويات
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="filterByCategory(2)" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10" data-category="2">
+                            <i class="fas fa-utensils ml-2"></i>أطباق رئيسية
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="filterByCategory(3)" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10" data-category="3">
+                            <i class="fas fa-hamburger ml-2"></i>سندوتشات
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="filterByCategory(4)" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10" data-category="4">
+                            <i class="fas fa-cheese ml-2"></i>مقبلات
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="filterByCategory(5)" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10" data-category="5">
+                            <i class="fas fa-leaf ml-2"></i>مشروبات
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Slider -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl h-80">
+                    <div id="slide-1" class="slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                        <img src="https://www2.0zz0.com/2025/10/23/00/698406669.jpg" alt="عرض خاص على المشويات" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 right-0 p-8 text-white">
+                            <h3 class="text-3xl font-bold mb-2">عرض خاص على المشويات</h3>
+                            <p class="text-2xl font-semibold text-[#ffcc00]">خصم 20%</p>
+                        </div>
+                    </div>
+                    <div id="slide-2" class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                        <img src="https://www2.0zz0.com/2025/10/23/00/693659791.jpg" alt="وجبة عائلية متنوعة" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 right-0 p-8 text-white">
+                            <h3 class="text-3xl font-bold mb-2">وجبة عائلية متنوعة</h3>
+                            <p class="text-2xl font-semibold text-[#ffcc00]">250 جنيه فقط</p>
+                        </div>
+                    </div>
+                    <div id="slide-3" class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                        <img src="https://www2.0zz0.com/2025/10/23/00/864068347.jpg" alt="توصيل مجاني للطلبات فوق 200 جنيه" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                        <div class="absolute bottom-0 right-0 p-8 text-white">
+                            <h3 class="text-3xl font-bold mb-2">توصيل مجاني للطلبات فوق 200 جنيه</h3>
+                        </div>
+                    </div>
+                    <div class="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-4">
+                        <button onclick="changeSlide(-1)" class="w-12 h-12 bg-white/70 rounded-full text-[#3e2723] text-lg transition-colors hover:bg-white" aria-label="Previous slide"><i class="fas fa-chevron-right"></i></button>
+                        <button onclick="changeSlide(1)" class="w-12 h-12 bg-white/70 rounded-full text-[#3e2723] text-lg transition-colors hover:bg-white" aria-label="Next slide"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        <button onclick="goToSlide(1)" class="slide-dot w-3 h-3 rounded-full transition-colors bg-white" data-slide="1"></button>
+                        <button onclick="goToSlide(2)" class="slide-dot w-3 h-3 rounded-full transition-colors bg-white/50" data-slide="2"></button>
+                        <button onclick="goToSlide(3)" class="slide-dot w-3 h-3 rounded-full transition-colors bg-white/50" data-slide="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <main id="menu-section" class="py-12">
+            <div class="container mx-auto px-4">
+                <div id="menu-categories">
+                    <!-- Categories will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#3e2723] text-white pt-12 pb-6">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#ffcc00] mb-4">تواصل معنا</h3>
+                        <p class="mb-2"><i class="fas fa-phone ml-1"></i> هاتف: 011180912××</p>
+                        <p class="mb-2"><i class="fas fa-phone ml-1"></i> دليفري: 010305660××</p>
+                        <p class="mb-4"><i class="fas fa-envelope ml-1"></i> بريد: fajr.adv.2013@gmail.com</p>
+                        <div class="flex gap-4">
+                             <a href="https://wa.me/201030566078" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-[#d97634] hover:-translate-y-1"><i class="fab fa-whatsapp"></i></a>
+                             <a href="https://www.facebook.com/share/1BpyFS6dCq/" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-[#d97634] hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-[#d97634] hover:-translate-y-1"><i class="fab fa-twitter"></i></a>
+                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center transition-all hover:bg-[#d97634] hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-[#ffcc00] mb-4">معلومات المطعم</h3>
+                        <p class="mb-2 address-link" onclick="openMap()"><i class="fas fa-map-marker-alt ml-1"></i> العنوان: 1 شارع احمد عرابى - امام موقف أمباية - شبرا الخيمة</p>
+                        <p><i class="fas fa-clock ml-1"></i> مواعيد العمل: 10:00 ص - 01:00 ص</p>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-bold text-[#ffcc00] mb-4">روابط سريعة</h3>
+                        <ul>
+                            <li class="mb-2"><a href="#" onclick="scrollToCategory(1)" class="hover:text-[#ffcc00] transition-colors">مشويات</a></li>
+                            <li class="mb-2"><a href="#" onclick="scrollToCategory(2)" class="hover:text-[#ffcc00] transition-colors">أطباق رئيسية</a></li>
+                            <li class="mb-2"><a href="#" onclick="scrollToCategory(3)" class="hover:text-[#ffcc00] transition-colors">سندوتشات</a></li>
+                            <li class="mb-2"><a href="#" onclick="scrollToCategory(4)" class="hover:text-[#ffcc00] transition-colors">مقبلات</a></li>
+                            <li class="mb-2"><a href="#" onclick="scrollToCategory(5)" class="hover:text-[#ffcc00] transition-colors">مشروبات</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center pt-6 border-t border-white/10 text-sm">
+                    <p>&copy; 2025 قصر السمين. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" style="display: none;" onclick="closeCartModalOnBackground(event)">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-full md:h-auto md:max-h-[90vh] animate-slideIn overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+                <header class="bg-[#3e2723] text-white p-5 flex justify-between items-center flex-shrink-0">
+                    <h3 class="text-xl font-bold">سلة التوصيل</h3>
+                    <button onclick="toggleCartModal()" class="text-2xl">&times;</button>
+                </header>
+                <div class="p-6 overflow-y-auto flex-1">
+                    <p id="cart-empty" class="text-center text-gray-500 py-10">السلة فارغة</p>
+                    <div id="cart-items" style="display: none;">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div id="cart-summary" class="p-6 bg-gray-50 flex-shrink-0" style="display: none;">
+                    <div class="flex justify-between items-center text-xl font-bold">
+                        <span>الإجمالي:</span>
+                        <span id="cart-total" class="text-[#d97634]">0 جنيه</span>
+                    </div>
+                </div>
+                <footer id="cart-footer" class="p-5 bg-gray-100 flex flex-col sm:flex-row gap-3 flex-shrink-0" style="display: none;">
+                    <button onclick="clearCart()" class="py-3 px-5 rounded-lg bg-red-600 text-white font-bold transition-colors hover:bg-red-700">إفراغ السلة</button>
+                    <button onclick="toggleCheckoutModal()" class="flex-1 py-3 px-5 rounded-lg bg-[#d97634] text-white font-bold transition-colors hover:bg-[#8b4513]">إتمام الطلب</button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Dine In Modal -->
+        <div id="dinein-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" style="display: none;" onclick="closeDineInModalOnBackground(event)">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-full md:h-auto md:max-h-[90vh] animate-slideIn overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+                <header class="bg-[#ffcc00] text-[#3e2723] p-5 flex justify-between items-center flex-shrink-0">
+                    <h3 class="text-xl font-bold">طلب داخل المطعم</h3>
+                    <button onclick="toggleDineInModal()" class="text-2xl">&times;</button>
+                </header>
+                <div class="p-6 overflow-y-auto flex-1">
+                    <p id="dinein-empty" class="text-center text-gray-500 py-10">لا توجد طلبات بعد</p>
+                    <div id="dinein-items" style="display: none;">
+                        <!-- Dine in items will be dynamically inserted here -->
+                    </div>
+                    <form id="dinein-form" class="mt-6 border-t pt-6" style="display: none;">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="dineInCustomerName" class="block text-sm font-medium text-gray-700 mb-1">اسم العميل</label>
+                                <input type="text" id="dineInCustomerName" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#ffcc00] focus:border-[#ffcc00]"/>
+                            </div>
+                            <div>
+                                <label for="tableNumber" class="block text-sm font-medium text-gray-700 mb-1">رقم الترابيزة</label>
+                                <input type="text" id="tableNumber" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#ffcc00] focus:border-[#ffcc00]"/>
+                            </div>
+                             <div>
+                                <label for="dineInOrderNotes" class="block text-sm font-medium text-gray-700 mb-1">ملاحظات إضافية (اختياري)</label>
+                                <textarea id="dineInOrderNotes" rows={3} class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#ffcc00] focus:border-[#ffcc00]"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <footer id="dinein-footer" class="p-5 bg-gray-100 flex-shrink-0" style="display: none;">
+                    <button onclick="submitDineInOrder()" class="w-full py-3 px-5 rounded-lg bg-[#ffcc00] text-[#3e2723] font-bold transition-colors hover:bg-[#e6b800]">إرسال الطلب</button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Size Modal -->
+        <div id="size-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" style="display: none;" onclick="closeSizeModalOnBackground(event)">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-xl animate-slideIn overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+                <header class="bg-[#d97634] text-white p-5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">اختر الحجم</h3>
+                    <button onclick="toggleSizeModal()" class="text-2xl">&times;</button>
+                </header>
+                <div class="p-6">
+                    <img id="size-modal-image" src="" alt="" class="w-full h-52 object-cover rounded-lg mb-6"/>
+                    <h3 id="size-modal-title" class="text-xl font-bold mb-4"></h3>
+                    <div id="size-options" class="flex flex-col gap-3">
+                        <!-- Size options will be dynamically inserted here -->
+                    </div>
+                </div>
+                <footer class="p-5 bg-gray-50 flex flex-col sm:flex-row gap-3">
+                    <button id="add-to-cart-size" onclick="addToCartWithSize()" disabled class="flex-1 py-3 px-5 rounded-lg bg-[#d97634] text-white font-bold transition-colors hover:bg-[#8b4513] disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> إضافة للسلة
+                    </button>
+                     <button id="add-to-dinein-size" onclick="addToDineInWithSize()" disabled class="flex-1 py-3 px-5 rounded-lg bg-[#ffcc00] text-[#3e2723] font-bold transition-colors hover:bg-[#e6b800] disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                        <i class="fas fa-utensils"></i> طلب في المطعم
+                    </button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Checkout Modal -->
+        <div id="checkout-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" style="display: none;" onclick="closeCheckoutModalOnBackground(event)">
+            <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-2xl animate-slideIn overflow-hidden flex flex-col" onclick="event.stopPropagation()">
+                <header class="bg-[#3e2723] text-white p-5 flex justify-between items-center">
+                    <h3 class="text-xl font-bold">إتمام الطلب</h3>
+                    <button onclick="toggleCheckoutModal()" class="text-2xl">&times;</button>
+                </header>
+                <form onsubmit="submitCheckout(event)" class="p-6 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">اسم العميل *</label>
+                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"/>
+                        </div>
+                         <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">رقم التليفون *</label>
+                            <input type="tel" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"/>
+                        </div>
+                    </div>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">رقم العقار *</label>
+                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"/>
+                        </div>
+                         <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">رقم الشقة *</label>
+                            <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">اسم الشارع *</label>
+                        <input type="text" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"/>
+                    </div>
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">ملاحظات إضافية (اختياري)</label>
+                        <textarea rows={3} class="w-full p-2 border border-gray-300 rounded-md focus:ring-[#d97634] focus:border-[#d97634]"></textarea>
+                    </div>
+                     <footer class="pt-4">
+                        <button type="submit" class="w-full py-3 px-5 rounded-lg bg-[#d97634] text-white font-bold transition-colors hover:bg-[#8b4513]">إرسال الطلب</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-[#3e2723] text-white py-3 px-6 rounded-lg shadow-lg z-[60]" style="display: none;">
+            <span id="toast-message"></span>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button id="scroll-to-top" onclick="scrollToTop()" class="fixed bottom-5 right-5 w-12 h-12 bg-[#d97634] text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none z-40" style="display: none;" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Data
+        const restaurantData = {
+            categories: [
+                { id: 1, name: "مشويات", icon: "fa-fire" },
+                { id: 2, name: "أطباق رئيسية", icon: "fa-utensils" },
+                { id: 3, name: "سندوتشات", icon: "fa-hamburger" },
+                { id: 4, name: "مقبلات", icon: "fa-cheese" },
+                { id: 5, name: "مشروبات", icon: "fa-leaf" },
+            ],
+            products: [
+                { id: 1, categoryId: 1, name: "طلب مشكل عادى", description: "لحم ضأن ممتاز مشوي على الفحم مع التوابل الشرقية الأصيلة", image: "https://www2.0zz0.com/2025/10/22/23/323379983.jpg", hasSizes: false, price: 110 },
+                { id: 2, categoryId: 1, name: "طلب مشكل ملك السمين", description: "دجاج منقوع بالزبادي والتوابل ومشوي على الفحم", image: "https://www2.0zz0.com/2025/10/22/23/852803087.jpg", hasSizes: false, price: 130 },
+                { id: 3, categoryId: 1, name: "طلب مشكل ربع عادى", description: "كفتة لحم ضأن بالبقدونس والبصل والتوابل المشكلة", image: "https://www2.0zz0.com/2025/10/22/23/592752516.jpeg", hasSizes: false, price: 160 },
+                { id: 4, categoryId: 2, name: "طلب مشكل قصر السمين", description: "لحم ضأن مطهو على الطور التقليدي بالبهارات العربية", image: "https://www2.0zz0.com/2025/10/22/23/592752516.jpeg", hasSizes: false, price: 220 },
+                { id: 5, categoryId: 2, name: "طلب نصف مشكل فاخر", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/592752516.jpeg", hasSizes: false, price: 320 },
+                { id: 6, categoryId: 2, name: "ربع كفتة بلدى على الفحم", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/877383500.jpeg", hasSizes: false, price: 100 },
+                { id: 7, categoryId: 2, name: "ربع لحمة محمرة بلدى باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/592236985.jpeg", hasSizes: false, price: 200 },
+                { id: 8, categoryId: 2, name: "ربع سجق بلدى باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/765659795.jpg", hasSizes: false, price: 160 },
+                { id: 9, categoryId: 2, name: "ربع كبدة باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/636014350.jpeg", hasSizes: false, price: 160 },
+                { id: 10, categoryId: 2, name: "ربع فشة وطحال", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/636014350.jpeg", hasSizes: false, price: 170 },
+                { id: 11, categoryId: 2, name: "ربع كفتة باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/636014350.jpeg", hasSizes: false, price: 160 },
+                { id: 12, categoryId: 3, name: "رغيف مشكل", description: "شاورما لحم ضأن مع الخضروات والصلصات", image: "https://www2.0zz0.com/2025/10/22/23/830719429.jpeg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 70 }, { name: "كبير", price: 80 }] },
+                { id: 13, categoryId: 3, name: "رغيف كبدة باللية", description: "شاورما دجاج مع الخضروات والصلصات", image: "https://www2.0zz0.com/2025/10/22/23/898201606.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 70 }, { name: "كبير", price: 80 }] },
+                { id: 14, categoryId: 3, name: "رغيف لحمة محمرة باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/310346821.jpeg", hasSizes: false, price: 110 },
+                { id: 15, categoryId: 3, name: "رغيف سجق بلدى باللية", description: "أرز بسمتي مطهو مع قطع الدجاج والتوابل العطرية", image: "https://www2.0zz0.com/2025/10/22/23/304344100.jpg", hasSizes: false, price: 60 },
+                { id: 16, categoryId: 3, name: "رغيف كفتة بلدى باللية", description: "كباب لحم مع الخضروات والصلصات", image: "https://www2.0zz0.com/2025/10/22/23/948403611.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 70 }] },
+                { id: 17, categoryId: 3, name: "رغيف سمين بلدى باللية", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/468176074.jpeg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 70 }] },
+                { id: 18, categoryId: 3, name: "رغيف طحال", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/897927229.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 80 }] },
+                { id: 19, categoryId: 3, name: "رغيف فشة", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/897927229.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 80 }] },
+                { id: 20, categoryId: 3, name: "رغيف لحمة راس", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/821958998.jpeg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 80 }, { name: "وسط", price: 100 }] },
+                { id: 21, categoryId: 3, name: "رغيف ممبار", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/586718991.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 60 }, { name: "وسط", price: 70 }, { name: "كبير", price: 80 }] },
+                { id: 22, categoryId: 3, name: "رغيف حواوشى", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/133885767.jpeg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 50 }, { name: "وسط", price: 70 }] },
+                { id: 23, categoryId: 3, name: "رغيف كغتة على الفحم", description: "فتة شاورما بالخبز المحمص والصلصة والزيت", image: "https://www2.0zz0.com/2025/10/23/00/219890455.jpg", hasSizes: true, price: 0, sizes: [{ name: "صغير", price: 50 }, { name: "وسط", price: 70 }] },
+                { id: 24, categoryId: 4, name: "سلطة خضراء", description: "متبل مشوي مع صلصة الطحينة الغنية وزيت الزيتون", image: "https://www2.0zz0.com/2025/10/23/00/613769838.png", hasSizes: false, price: 10 },
+                { id: 25, categoryId: 4, name: "طحينة", description: "حمص معصون بالطحينة وعصير الليمون والزيت", image: "https://www2.0zz0.com/2025/10/23/00/943591820.png", hasSizes: false, price: 15 },
+                { id: 26, categoryId: 5, name: "مياة معدنية صغيرة", description: "سلطة البقدونس مع البرغل والطماطم والبصل وعصير الليمون", image: "https://www2.0zz0.com/2025/10/23/00/182906841.jpg", hasSizes: false, price: 10 },
+                { id: 27, categoryId: 5, name: "مياة معدنية كبيرة", description: "سلطة الخضروات مع الخبز المحمص والرمان", image: "https://www2.0zz0.com/2025/10/23/00/937909087.jpg", hasSizes: false, price: 15 }
+            ]
+        };
+
+        // State
+        let cart = [];
+        let dineInCart = [];
+        let activeCategoryId = 'all';
+        let searchTerm = '';
+        let selectedProduct = null;
+        let selectedSize = null;
+        let currentSlide = 1;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen and show the app
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('root').style.display = 'block';
+                
+                // Initialize the menu
+                renderMenu();
+                
+                // Start the slider
+                startSlider();
+                
+                // Initialize scroll to top button
+                initScrollToTop();
+            }, 1000);
+        });
+
+        // Render menu
+        function renderMenu() {
+            const menuContainer = document.getElementById('menu-categories');
+            menuContainer.innerHTML = '';
+            
+            // Filter products
+            let filteredProducts = restaurantData.products;
+            
+            if (activeCategoryId !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.categoryId === activeCategoryId);
+            }
+            
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            // Group products by category
+            const groupedProducts = {};
+            filteredProducts.forEach(product => {
+                const category = restaurantData.categories.find(cat => cat.id === product.categoryId);
+                if (category) {
+                    if (!groupedProducts[category.name]) {
+                        groupedProducts[category.name] = [];
+                    }
+                    groupedProducts[category.name].push(product);
+                }
+            });
+            
+            // Render categories
+            if (Object.keys(groupedProducts).length === 0) {
+                menuContainer.innerHTML = `
+                    <div class="text-center py-10">
+                        <h2 class="text-2xl font-bold text-[#3e2723]">لا توجد منتجات مطابقة</h2>
+                        <p class="text-gray-600 mt-2">حاول تغيير فلتر القسم أو مصطلح البحث.</p>
+                    </div>
+                `;
+            } else {
+                Object.entries(groupedProducts).forEach(([categoryName, productsInCategory]) => {
+                    const category = restaurantData.categories.find(cat => cat.name === categoryName);
+                    const categorySection = document.createElement('section');
+                    categorySection.className = 'mb-16';
+                    categorySection.id = `category-${category.id}`;
+                    
+                    categorySection.innerHTML = `
+                        <div class="text-center mb-8 relative pb-5">
+                            <h2 class="text-3xl md:text-4xl font-bold text-[#3e2723]">${categoryName}</h2>
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#d97634]"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${productsInCategory.map(product => createProductCard(product)).join('')}
+                        </div>
+                    `;
+                    
+                    menuContainer.appendChild(categorySection);
+                });
+            }
+        }
+
+        // Create product card HTML
+        function createProductCard(product) {
+            const displayPrice = product.hasSizes && product.sizes
+                ? `من ${Math.min(...product.sizes.map(s => s.price))} جنيه`
+                : `${product.price} جنيه`;
+            
+            return `
+                <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="relative cursor-pointer" onclick="${product.hasSizes ? `openSizeModal(${product.id})` : ''}">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-52 object-cover" />
+                        ${product.hasSizes ? `
+                            <div class="absolute top-3 right-3 bg-black/60 text-white py-1 px-3 rounded-full text-xs flex items-center gap-2">
+                                <i class="fas fa-expand-alt"></i> احجام متعددة
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-[#3e2723] mb-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm mb-4 h-12 overflow-hidden">${product.description}</p>
+                        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                            <span class="text-xl font-bold text-[#d97634]">${displayPrice}</span>
+                            <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                                ${product.hasSizes ? `
+                                    <button onclick="openSizeModal(${product.id})" class="w-full text-center py-2 px-4 rounded-full bg-[#d97634] text-white font-semibold transition-colors hover:bg-[#8b4513]">
+                                        اختر الحجم
+                                    </button>
+                                ` : `
+                                    <button onclick="addToCart(${product.id})" class="w-full sm:w-auto py-2 px-4 rounded-full bg-[#d97634] text-white font-semibold transition-colors hover:bg-[#8b4513] flex items-center justify-center gap-2">
+                                        <i class="fas fa-shopping-cart text-xs"></i> توصيل
+                                    </button>
+                                    <button onclick="addToDineIn(${product.id})" class="w-full sm:w-auto py-2 px-4 rounded-full bg-[#ffcc00] text-[#3e2723] font-semibold transition-colors hover:bg-[#e6b800] flex items-center justify-center gap-2">
+                                        <i class="fas fa-utensils text-xs"></i> في المطعم
+                                    </button>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Slider functions
+        function startSlider() {
+            setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            slides[currentSlide - 1].style.opacity = '0';
+            dots[currentSlide - 1].classList.remove('bg-white');
+            dots[currentSlide - 1].classList.add('bg-white/50');
+            
+            currentSlide = currentSlide + direction;
+            
+            if (currentSlide > slides.length) {
+                currentSlide = 1;
+            } else if (currentSlide < 1) {
+                currentSlide = slides.length;
+            }
+            
+            slides[currentSlide - 1].style.opacity = '1';
+            dots[currentSlide - 1].classList.remove('bg-white/50');
+            dots[currentSlide - 1].classList.add('bg-white');
+        }
+
+        function goToSlide(slideNumber) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            
+            slides[currentSlide - 1].style.opacity = '0';
+            dots[currentSlide - 1].classList.remove('bg-white');
+            dots[currentSlide - 1].classList.add('bg-white/50');
+            
+            currentSlide = slideNumber;
+            
+            slides[currentSlide - 1].style.opacity = '1';
+            dots[currentSlide - 1].classList.remove('bg-white/50');
+            dots[currentSlide - 1].classList.add('bg-white');
+        }
+
+        // Cart functions
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (modal.style.display === 'flex') {
+                renderCart();
+            }
+        }
+
+        function closeCartModalOnBackground(event) {
+            if (event.target.id === 'cart-modal') {
+                toggleCartModal();
+            }
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartEmpty = document.getElementById('cart-empty');
+            const cartSummary = document.getElementById('cart-summary');
+            const cartFooter = document.getElementById('cart-footer');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.style.display = 'none';
+                cartSummary.style.display = 'none';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartItems.style.display = 'block';
+                cartSummary.style.display = 'block';
+                cartFooter.style.display = 'flex';
+                
+                let total = 0;
+                let itemsHTML = '';
+                
+                cart.forEach(item => {
+                    total += item.price * item.quantity;
+                    itemsHTML += `
+                        <div class="flex gap-4 py-4 border-b">
+                            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md" />
+                            <div class="flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold">${item.name}</h4>
+                                    ${item.selectedSize ? `<p class="text-sm text-gray-500">الحجم: ${item.selectedSize}</p>` : ''}
+                                </div>
+                                <p class="font-semibold text-[#d97634]">${item.price} جنيه</p>
+                            </div>
+                            <div class="flex flex-col items-center justify-between">
+                                 <div class="flex items-center gap-2">
+                                    <button onclick="updateQuantity('${item.uniqueId}', 1)" class="w-7 h-7 bg-gray-200 rounded-full">+</button>
+                                    <span>${item.quantity}</span>
+                                    <button onclick="updateQuantity('${item.uniqueId}', -1)" class="w-7 h-7 bg-gray-200 rounded-full">-</button>
+                                </div>
+                                <button onclick="updateQuantity('${item.uniqueId}', -${item.quantity})" class="text-red-500 text-sm hover:underline">إزالة</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = itemsHTML;
+                cartTotal.textContent = `${total} جنيه`;
+            }
+        }
+
+        function addToCart(productId) {
+            const product = restaurantData.products.find(p => p.id === productId);
+            if (!product) return;
+    
+            const uniqueId = String(product.id);
+            const existingItem = cart.find(item => item.uniqueId === uniqueId);
+    
+            if (existingItem) {
+                cart = cart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: item.quantity + 1 } : item);
+            } else {
+                cart = [...cart, { ...product, quantity: 1, uniqueId }];
+            }
+            
+            updateCartCount();
+            showToast(`تمت إضافة ${product.name} إلى السلة`);
+        }
+
+        function addToCartWithSize() {
+            if (!selectedProduct || !selectedSize) return;
+            
+            const uniqueId = `${selectedProduct.id}-${selectedSize.name}`;
+            const existingItem = cart.find(item => item.uniqueId === uniqueId);
+    
+            if (existingItem) {
+                cart = cart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: item.quantity + 1 } : item);
+            } else {
+                cart = [...cart, { ...selectedProduct, quantity: 1, uniqueId, selectedSize: selectedSize.name, price: selectedSize.price }];
+            }
+            
+            updateCartCount();
+            showToast(`تمت إضافة ${selectedProduct.name} (${selectedSize.name}) إلى السلة`);
+            toggleSizeModal();
+        }
+
+        function updateQuantity(uniqueId, change) {
+            // Update cart
+            const cartItem = cart.find(item => item.uniqueId === uniqueId);
+            if (cartItem) {
+                const newQuantity = cartItem.quantity + change;
+                if (newQuantity <= 0) {
+                    cart = cart.filter(item => item.uniqueId !== uniqueId);
+                } else {
+                    cart = cart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: newQuantity } : item);
+                }
+                updateCartCount();
+                renderCart();
+                return;
+            }
+            
+            // Update dine in cart
+            const dineInItem = dineInCart.find(item => item.uniqueId === uniqueId);
+            if (dineInItem) {
+                const newQuantity = dineInItem.quantity + change;
+                if (newQuantity <= 0) {
+                    dineInCart = dineInCart.filter(item => item.uniqueId !== uniqueId);
+                } else {
+                    dineInCart = dineInCart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: newQuantity } : item);
+                }
+                updateDineInCount();
+                renderDineIn();
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartCount();
+            renderCart();
+            showToast('تم إفراغ سلة التوصيل');
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartCountElement = document.getElementById('cart-count');
+            
+            if (count > 0) {
+                cartCountElement.textContent = count;
+                cartCountElement.style.display = 'flex';
+            } else {
+                cartCountElement.style.display = 'none';
+            }
+        }
+
+        // Dine In functions
+        function toggleDineInModal() {
+            const modal = document.getElementById('dinein-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (modal.style.display === 'flex') {
+                renderDineIn();
+            }
+        }
+
+        function closeDineInModalOnBackground(event) {
+            if (event.target.id === 'dinein-modal') {
+                toggleDineInModal();
+            }
+        }
+
+        function renderDineIn() {
+            const dineInItems = document.getElementById('dinein-items');
+            const dineInEmpty = document.getElementById('dinein-empty');
+            const dineInForm = document.getElementById('dinein-form');
+            const dineInFooter = document.getElementById('dinein-footer');
+            
+            if (dineInCart.length === 0) {
+                dineInEmpty.style.display = 'block';
+                dineInItems.style.display = 'none';
+                dineInForm.style.display = 'none';
+                dineInFooter.style.display = 'none';
+            } else {
+                dineInEmpty.style.display = 'none';
+                dineInItems.style.display = 'block';
+                dineInForm.style.display = 'block';
+                dineInFooter.style.display = 'block';
+                
+                let itemsHTML = '';
+                
+                dineInCart.forEach(item => {
+                    itemsHTML += `
+                        <div class="flex gap-4 py-4 border-b">
+                            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md" />
+                            <div class="flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold">${item.name}</h4>
+                                    ${item.selectedSize ? `<p class="text-sm text-gray-500">الحجم: ${item.selectedSize}</p>` : ''}
+                                </div>
+                                <p class="font-semibold text-[#d97634]">${item.price} جنيه</p>
+                            </div>
+                            <div class="flex flex-col items-center justify-between">
+                                 <div class="flex items-center gap-2">
+                                    <button onclick="updateQuantity('${item.uniqueId}', 1)" class="w-7 h-7 bg-gray-200 rounded-full">+</button>
+                                    <span>${item.quantity}</span>
+                                    <button onclick="updateQuantity('${item.uniqueId}', -1)" class="w-7 h-7 bg-gray-200 rounded-full">-</button>
+                                </div>
+                                <button onclick="updateQuantity('${item.uniqueId}', -${item.quantity})" class="text-red-500 text-sm hover:underline">إزالة</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                dineInItems.innerHTML = itemsHTML;
+            }
+        }
+
+        function addToDineIn(productId) {
+            const product = restaurantData.products.find(p => p.id === productId);
+            if (!product) return;
+    
+            const uniqueId = String(product.id);
+            const existingItem = dineInCart.find(item => item.uniqueId === uniqueId);
+    
+            if (existingItem) {
+                dineInCart = dineInCart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: item.quantity + 1 } : item);
+            } else {
+                dineInCart = [...dineInCart, { ...product, quantity: 1, uniqueId }];
+            }
+            
+            updateDineInCount();
+            showToast(`تمت إضافة ${product.name} إلى طلب المطعم`);
+        }
+
+        function addToDineInWithSize() {
+            if (!selectedProduct || !selectedSize) return;
+            
+            const uniqueId = `${selectedProduct.id}-${selectedSize.name}`;
+            const existingItem = dineInCart.find(item => item.uniqueId === uniqueId);
+    
+            if (existingItem) {
+                dineInCart = dineInCart.map(item => item.uniqueId === uniqueId ? { ...item, quantity: item.quantity + 1 } : item);
+            } else {
+                dineInCart = [...dineInCart, { ...selectedProduct, quantity: 1, uniqueId, selectedSize: selectedSize.name, price: selectedSize.price }];
+            }
+            
+            updateDineInCount();
+            showToast(`تمت إضافة ${selectedProduct.name} (${selectedSize.name}) إلى طلب المطعم`);
+            toggleSizeModal();
+        }
+
+        function submitDineInOrder() {
+            const name = document.getElementById('dineInCustomerName').value;
+            const table = document.getElementById('tableNumber').value;
+            const notes = document.getElementById('dineInOrderNotes').value;
+            
+            if (!name || !table) {
+                showToast('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // Here you would normally send the order to a server
+            console.log('طلب المطعم:', { name, table, notes }, dineInCart);
+            
+            showToast('تم إرسال طلب المطعم بنجاح');
+            dineInCart = [];
+            updateDineInCount();
+            toggleDineInModal();
+        }
+
+        function updateDineInCount() {
+            const count = dineInCart.reduce((total, item) => total + item.quantity, 0);
+            const dineInCountElement = document.getElementById('dinein-count');
+            
+            if (count > 0) {
+                dineInCountElement.textContent = count;
+                dineInCountElement.style.display = 'flex';
+            } else {
+                dineInCountElement.style.display = 'none';
+            }
+        }
+
+        // Size Modal functions
+        function openSizeModal(productId) {
+            selectedProduct = restaurantData.products.find(p => p.id === productId);
+            selectedSize = null;
+            
+            if (!selectedProduct) return;
+            
+            const modal = document.getElementById('size-modal');
+            const image = document.getElementById('size-modal-image');
+            const title = document.getElementById('size-modal-title');
+            const options = document.getElementById('size-options');
+            const addToCartBtn = document.getElementById('add-to-cart-size');
+            const addToDineInBtn = document.getElementById('add-to-dinein-size');
+            
+            image.src = selectedProduct.image;
+            image.alt = selectedProduct.name;
+            title.textContent = selectedProduct.name;
+            
+            let optionsHTML = '';
+            selectedProduct.sizes.forEach((size, index) => {
+                optionsHTML += `
+                    <div onclick="selectSize(${index})" class="size-option flex justify-between items-center p-4 border-2 rounded-lg cursor-pointer transition-all border-gray-200 hover:border-[#d97634]/50" data-size="${index}">
+                        <span class="font-semibold text-lg">${size.name}</span>
+                        <span class="font-bold text-lg text-[#d97634]">${size.price} جنيه</span>
+                    </div>
+                `;
+            });
+            
+            options.innerHTML = optionsHTML;
+            addToCartBtn.disabled = true;
+            addToDineInBtn.disabled = true;
+            
+            modal.style.display = 'flex';
+        }
+
+        function toggleSizeModal() {
+            const modal = document.getElementById('size-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function closeSizeModalOnBackground(event) {
+            if (event.target.id === 'size-modal') {
+                toggleSizeModal();
+            }
+        }
+
+        function selectSize(index) {
+            selectedSize = selectedProduct.sizes[index];
+            
+            // Update UI
+            document.querySelectorAll('.size-option').forEach((option, i) => {
+                if (i === index) {
+                    option.classList.add('border-[#d97634]', 'bg-[#d97634]/10');
+                } else {
+                    option.classList.remove('border-[#d97634]', 'bg-[#d97634]/10');
+                }
+            });
+            
+            // Enable buttons
+            document.getElementById('add-to-cart-size').disabled = false;
+            document.getElementById('add-to-dinein-size').disabled = false;
+        }
+
+        // Checkout Modal functions
+        function toggleCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function closeCheckoutModalOnBackground(event) {
+            if (event.target.id === 'checkout-modal') {
+                toggleCheckoutModal();
+            }
+        }
+
+        function submitCheckout(event) {
+            event.preventDefault();
+            
+            // Here you would normally send the order to a server
+            console.log('طلب التوصيل:', cart);
+            
+            showToast('تم إرسال طلب التوصيل بنجاح');
+            cart = [];
+            updateCartCount();
+            toggleCheckoutModal();
+            toggleCartModal();
+        }
+
+        // Search functions
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            searchTerm = document.getElementById('search-input').value;
+            renderMenu();
+        }
+
+        // Category filter function
+        function filterByCategory(categoryId) {
+            activeCategoryId = categoryId;
+            
+            // Update UI
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.dataset.category == categoryId) {
+                    btn.classList.add('text-[#ffcc00]');
+                    btn.innerHTML += '<span class="absolute bottom-0 left-0 w-full h-1 bg-[#ffcc00]"></span>';
+                } else {
+                    btn.classList.remove('text-[#ffcc00]');
+                    const span = btn.querySelector('span');
+                    if (span) span.remove();
+                }
+            });
+            
+            renderMenu();
+        }
+
+        // Scroll to category function
+        function scrollToCategory(categoryId) {
+            // First filter by category
+            filterByCategory(categoryId);
+            
+            // Then scroll to the category section
+            setTimeout(() => {
+                const categorySection = document.getElementById(`category-${categoryId}`);
+                if (categorySection) {
+                    categorySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        // Open map function
+        function openMap() {
+            window.open('https://maps.app.goo.gl/ayVTbbutxxivQMDWA', '_blank');
+        }
+
+        // Utility functions
+        function scrollToMenu() {
+            const menuSection = document.getElementById('menu-section');
+            if (menuSection) {
+                menuSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function initScrollToTop() {
+            window.addEventListener('scroll', function() {
+                const scrollButton = document.getElementById('scroll-to-top');
+                if (window.pageYOffset > 300) {
+                    scrollButton.style.display = 'flex';
+                } else {
+                    scrollButton.style.display = 'none';
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
