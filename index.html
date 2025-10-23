@@ -287,7 +287,6 @@
         <section class="bg-white shadow-sm py-8 relative -mt-12 z-30 mx-4 rounded-lg md:mx-auto">
             <div class="container mx-auto px-4">
                 <div class="relative max-w-2xl mx-auto">
-                    <!-- FIX: Corrected class attribute -->
                     <input
                         type="text"
                         id="search-input"
@@ -305,7 +304,6 @@
         <!-- Category Navigation -->
         <nav class="bg-[#3e2723] sticky top-[220px] md:top-[132px] z-20 shadow-lg">
             <div class="container mx-auto px-4">
-                <!-- FIX: Added 'flex items-' to the class attribute -->
                 <ul class="flex items-center justify-center overflow-x-auto scrollbar-hide whitespace-nowrap">
                     <li>
                         <button onclick="filterByCategory('all')" class="category-btn py-4 px-6 text-white font-medium transition-colors relative hover:bg-white/10 text-[#ffcc00]" data-category="all">
@@ -1164,7 +1162,12 @@
             cart = [];
             toggleCustomerInfoModal();
             toggleCartModal();
+            
+            // MODIFICATION: Added a second toast message
             showToast('تم إرسال طلبك بنجاح!');
+            setTimeout(() => {
+                showToast('جاري مراجعة طلبك وسيتم تنفيذه قريباً');
+            }, 2500);
         }
 
         function sendDineInToWhatsApp() {
@@ -1193,7 +1196,12 @@
             // Clear cart and close modal after sending
             dineInCart = [];
             toggleDineInModal();
+            
+            // MODIFICATION: Added a second toast message
             showToast('تم إرسال طلبك بنجاح!');
+            setTimeout(() => {
+                showToast('جاري مراجعة طلبك وسيتم تنفيذه قريباً');
+            }, 2500);
         }
 
         // --- LOCATION ---
